@@ -146,6 +146,9 @@ const char* param_type_to_string(ppm_param_type pt)
 	case PT_ERRNO:
 		return "ERRNO";
 		break;
+	case PT_IOCTL:
+		return "IOCTL";
+		break;
 	case PT_SOCKADDR:
 		return "SOCKADDR";
 		break;

@@ -45,6 +45,11 @@ public:
 	static const char* errno_to_str(int32_t code);
 
 	//
+	// Convert an ioctl request code into the corresponding compact string
+	//
+	static const char* ioctl_to_str(uint64_t code);
+
+	//
 	// Convert a signal number into the corresponding signal name
 	//
 	static const char* signal_to_str(uint8_t code);

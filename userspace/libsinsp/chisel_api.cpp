@@ -100,6 +100,7 @@ uint32_t lua_cbacks::rawval_to_lua_stack(lua_State *ls, uint8_t* rawval, const f
 		case PT_UINT64:
 		case PT_RELTIME:
 		case PT_ABSTIME:
+		case PT_IOCTL:
 			lua_pushnumber(ls, (double)*(uint64_t*)rawval);
 			return 1;
 		case PT_DOUBLE:

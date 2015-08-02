@@ -306,6 +306,7 @@ bool flt_compare(ppm_cmp_operator op, ppm_param_type type, void* operand1, void*
 	case PT_UINT64:
 	case PT_RELTIME:
 	case PT_ABSTIME:
+	case PT_IOCTL:
 		return flt_compare_uint64(op, *(uint64_t*)operand1, *(uint64_t*)operand2);
 	case PT_CHARBUF:
 		return flt_compare_string(op, (char*)operand1, (char*)operand2);
@@ -408,6 +409,7 @@ bool flt_compare_avg(ppm_cmp_operator op,
 	case PT_UINT64:
 	case PT_RELTIME:
 	case PT_ABSTIME:
+	case PT_IOCTL:
 		u641 = (*(uint64_t*)operand1) / cnt1;
 		u642 = (*(uint64_t*)operand2) / cnt2;
 		ASSERT(cnt1 != 0 || u641 == 0);
@@ -762,6 +764,7 @@ char* sinsp_filter_check::rawval_to_string(uint8_t* rawval, const filtercheck_fi
 		case PT_UINT64:
 		case PT_RELTIME:
 		case PT_ABSTIME:
+		case PT_IOCTL:
 			if(finfo->m_print_format == PF_DEC ||
 			   finfo->m_print_format == PF_ID)
 			{
@@ -873,6 +876,7 @@ void sinsp_filter_check::string_to_rawval(const char* str, uint32_t len, ppm_par
 			*(uint32_t*)(&m_val_storage[0]) = sinsp_numparser::parseu32(str);
 			break;
 		case PT_UINT64:
+		case PT_IOCTL:
 			*(uint64_t*)(&m_val_storage[0]) = sinsp_numparser::parseu64(str);
 			break;
 		case PT_RELTIME:

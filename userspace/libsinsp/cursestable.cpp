@@ -87,6 +87,7 @@ curses_table::curses_table(sinsp_cursesui* parent, sinsp* inspector, sinsp_table
 	m_colsizes[PT_CHARBUF] = 32;
 	m_colsizes[PT_BYTEBUF] = 32;
 	m_colsizes[PT_ERRNO] = 8;
+	m_colsizes[PT_IOCTL] = 8;
 	m_colsizes[PT_SOCKADDR] = 16;
 	m_colsizes[PT_SOCKTUPLE] = 16;
 	m_colsizes[PT_FD] = 32;

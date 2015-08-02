@@ -535,6 +535,7 @@ int val_to_ring(struct event_filler_arguments *args, uint64_t val, u16 val_len, 
 	case PT_RELTIME:
 	case PT_ABSTIME:
 	case PT_UINT64:
+	case PT_IOCTL:
 		if (likely(args->arg_data_size >= sizeof(u64))) {
 			*(u64 *)(args->buffer + args->arg_data_offset) = (u64)val;
 			len = sizeof(u64);

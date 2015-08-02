@@ -853,6 +853,26 @@ Json::Value sinsp_evt::get_param_as_json(uint32_t id, OUT const char** resolved_
 	}
 	break;
 
+	case PT_IOCTL:
+	{
+		ASSERT(payload_len == sizeof(uint64_t));
+
+		uint64_t val = *(uint64_t *)payload;
+
+		//
+		// Resolve this as an ioctl request
+		//
+		const char* errstr = sinsp_utils::ioctl_to_str(val);
+		if(errstr != NULL)
+		{
+			snprintf(&m_resolved_paramstr_storage[0],
+				 m_resolved_paramstr_storage.size(),
+				 "%s", errstr);
+		}
+		ret = (Json::Value::UInt64)val;
+	}
+	break;
+
 	case PT_FD:
 		{
 			// We use the string extractor to get 
@@ -1367,6 +1387,28 @@ const char* sinsp_evt::get_param_as_str(uint32_t id, OUT const char** resolved_s
 				         m_resolved_paramstr_storage.size(),
 				         "%s", errstr.c_str());
 			}
+		}
+	}
+	break;
+	case PT_IOCTL:
+	{
+		ASSERT(payload_len == sizeof(uint64_t));
+
+		uint64_t val = *(uint64_t *)payload;
+
+		snprintf(&m_paramstr_storage[0],
+		         m_paramstr_storage.size(),
+		         "%" PRId64, val);
+
+		//
+		// Resolve this as an ioctl
+		//
+		const char* errstr = sinsp_utils::ioctl_to_str(val);
+		if(errstr != NULL)
+		{
+			snprintf(&m_resolved_paramstr_storage[0],
+				 m_resolved_paramstr_storage.size(),
+				 "%s", errstr);
 		}
 	}
 	break;

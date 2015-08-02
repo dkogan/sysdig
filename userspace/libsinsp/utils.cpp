@@ -296,6 +296,109 @@ const char* sinsp_utils::errno_to_str(int32_t code)
 	}
 }
 
+
+//
+// ioctl to string conversion.
+//
+const char* sinsp_utils::ioctl_to_str(uint64_t code)
+{
+	switch(code)
+	{
+	case 0xc0585600: return "VIDIOC_QUERYCAP";
+	case 0xc0585601: return "VIDIOC_RESERVED";
+	case 0xc0585602: return "VIDIOC_ENUM_FMT";
+	case 0xc0585604: return "VIDIOC_G_FMT";
+	case 0xc0585605: return "VIDIOC_S_FMT";
+	case 0xc0585608: return "VIDIOC_REQBUFS";
+	case 0xc0585609: return "VIDIOC_QUERYBUF";
+	case 0xc058560a: return "VIDIOC_G_FBUF";
+	case 0xc058560b: return "VIDIOC_S_FBUF";
+	case 0xc058560e: return "VIDIOC_OVERLAY";
+	case 0xc058560f: return "VIDIOC_QBUF";
+	case 0xc0585610: return "VIDIOC_EXPBUF";
+	case 0xc0585611: return "VIDIOC_DQBUF";
+	case 0xc0585612: return "VIDIOC_STREAMON";
+	case 0xc0585613: return "VIDIOC_STREAMOFF";
+	case 0xc0585615: return "VIDIOC_G_PARM";
+	case 0xc0585616: return "VIDIOC_S_PARM";
+	case 0xc0585617: return "VIDIOC_G_STD";
+	case 0xc0585618: return "VIDIOC_S_STD";
+	case 0xc0585619: return "VIDIOC_ENUMSTD";
+	case 0xc058561a: return "VIDIOC_ENUMINPUT";
+	case 0xc058561b: return "VIDIOC_G_CTRL";
+	case 0xc058561c: return "VIDIOC_S_CTRL";
+	case 0xc058561d: return "VIDIOC_G_TUNER";
+	case 0xc058561e: return "VIDIOC_S_TUNER";
+	case 0xc0585621: return "VIDIOC_G_AUDIO";
+	case 0xc0585622: return "VIDIOC_S_AUDIO";
+	case 0xc0585624: return "VIDIOC_QUERYCTRL";
+	case 0xc0585625: return "VIDIOC_QUERYMENU";
+	case 0xc0585626: return "VIDIOC_G_INPUT";
+	case 0xc0585627: return "VIDIOC_S_INPUT";
+	case 0xc0585628: return "VIDIOC_G_EDID";
+	case 0xc0585629: return "VIDIOC_S_EDID";
+	case 0xc058562e: return "VIDIOC_G_OUTPUT";
+	case 0xc058562f: return "VIDIOC_S_OUTPUT";
+	case 0xc0585630: return "VIDIOC_ENUMOUTPUT";
+	case 0xc0585631: return "VIDIOC_G_AUDOUT";
+	case 0xc0585632: return "VIDIOC_S_AUDOUT";
+	case 0xc0585636: return "VIDIOC_G_MODULATOR";
+	case 0xc0585637: return "VIDIOC_S_MODULATOR";
+	case 0xc0585638: return "VIDIOC_G_FREQUENCY";
+	case 0xc0585639: return "VIDIOC_S_FREQUENCY";
+	case 0xc058563a: return "VIDIOC_CROPCAP";
+	case 0xc058563b: return "VIDIOC_G_CROP";
+	case 0xc058563c: return "VIDIOC_S_CROP";
+	case 0xc058563d: return "VIDIOC_G_JPEGCOMP";
+	case 0xc058563e: return "VIDIOC_S_JPEGCOMP";
+	case 0xc058563f: return "VIDIOC_QUERYSTD";
+	case 0xc0585640: return "VIDIOC_TRY_FMT";
+	case 0xc0585641: return "VIDIOC_ENUMAUDIO";
+	case 0xc0585642: return "VIDIOC_ENUMAUDOUT";
+	case 0xc0585643: return "VIDIOC_G_PRIORITY";
+	case 0xc0585644: return "VIDIOC_S_PRIORITY";
+	case 0xc0585645: return "VIDIOC_G_SLICED_VBI_CAP";
+	case 0xc0585646: return "VIDIOC_LOG_STATUS";
+	case 0xc0585647: return "VIDIOC_G_EXT_CTRLS";
+	case 0xc0585648: return "VIDIOC_S_EXT_CTRLS";
+	case 0xc0585649: return "VIDIOC_TRY_EXT_CTRLS";
+	case 0xc058564a: return "VIDIOC_ENUM_FRAMESIZES";
+	case 0xc058564b: return "VIDIOC_ENUM_FRAMEINTERVALS";
+	case 0xc058564c: return "VIDIOC_G_ENC_INDEX";
+	case 0xc058564d: return "VIDIOC_ENCODER_CMD";
+	case 0xc058564e: return "VIDIOC_TRY_ENCODER_CMD";
+	case 0xc058564f: return "VIDIOC_DBG_S_REGISTER";
+	case 0xc0585650: return "VIDIOC_DBG_G_REGISTER";
+	case 0xc0585652: return "VIDIOC_S_HW_FREQ_SEEK";
+	case 0xc0585657: return "VIDIOC_S_DV_TIMINGS";
+	case 0xc0585658: return "VIDIOC_G_DV_TIMINGS";
+	case 0xc0585659: return "VIDIOC_DQEVENT";
+	case 0xc058565a: return "VIDIOC_SUBSCRIBE_EVENT";
+	case 0xc058565b: return "VIDIOC_UNSUBSCRIBE_EVENT";
+	case 0xc058565c: return "VIDIOC_CREATE_BUFS";
+	case 0xc058565d: return "VIDIOC_PREPARE_BUF";
+	case 0xc058565e: return "VIDIOC_G_SELECTION";
+	case 0xc058565f: return "VIDIOC_S_SELECTION";
+	case 0xc0585660: return "VIDIOC_DECODER_CMD";
+	case 0xc0585661: return "VIDIOC_TRY_DECODER_CMD";
+	case 0xc0585662: return "VIDIOC_ENUM_DV_TIMINGS";
+	case 0xc0585663: return "VIDIOC_QUERY_DV_TIMINGS";
+	case 0xc0585664: return "VIDIOC_DV_TIMINGS_CAP";
+	case 0xc0585665: return "VIDIOC_ENUM_FREQ_BANDS";
+	case 0xc0585666: return "VIDIOC_DBG_G_CHIP_INFO";
+	case 0xc0585667: return "VIDIOC_QUERY_EXT_CTRL";
+	case 0xc05856c1: return "VIDIOC_VSP1_LUT_CONFIG";
+	case 0xc05856c2: return "VIDIOC_OMAP3ISP_PRV_CFG";
+	case 0xc05856c3: return "VIDIOC_OMAP3ISP_AEWB_CFG";
+	case 0xc05856c4: return "VIDIOC_OMAP3ISP_HIST_CFG";
+	case 0xc05856c5: return "VIDIOC_OMAP3ISP_AF_CFG";
+	case 0xc05856c6: return "VIDIOC_OMAP3ISP_STAT_REQ";
+	case 0xc05856c7: return "VIDIOC_OMAP3ISP_STAT_EN";
+	case 0xc0586466: return "VIDIOC_INT_RESET";
+	default: return NULL;
+	}
+}
+
 //
 // errno to string conversion.
 // Only the first 40 error codes are currently implemented

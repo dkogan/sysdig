@@ -1231,6 +1231,7 @@ uint32_t sinsp_table::get_field_len(uint32_t id)
 	case PT_UINT64:
 	case PT_RELTIME:
 	case PT_ABSTIME:
+	case PT_IOCTL:
 		return 8;
 	case PT_CHARBUF:
 		return (uint32_t)(strlen((char*)fld->m_val) + 1);
